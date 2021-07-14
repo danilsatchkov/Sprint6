@@ -34,7 +34,6 @@ public:
             PushBack(t);
         }
     }
-
     SingleLinkedList(std::initializer_list<Type> values) {
         ContToList(values);
     }
@@ -251,9 +250,7 @@ public:
         //текущий элемент станет следующим элементном у добавленного, а добавленный станет head_
         head_.next_node = new Node(value, head_.next_node); //existing first becomes next
         size_++;
-
     }
-
     void PushBack(const Type& value)
     {
         size_++;
@@ -280,7 +277,6 @@ public:
         // 6. Change the next of last node
         last->next_node = new_node;
        
-
         return;
     }
 
@@ -294,8 +290,7 @@ public:
         }
         size_ = 0;
     }
-
-    /*
+        /*
      * Вставляет элемент value после элемента, на который указывает pos.
      * Возвращает итератор на вставленный элемент
      * Если при создании элемента будет выброшено исключение, список останется в прежнем состоянии
@@ -332,50 +327,42 @@ public:
         return Iterator{pos.node_->next_node};
     }
 private:
-    // Фиктивный узел, используется для вставки "перед первым элементом"
     Node head_;
     size_t size_ = 0;
 };
 
 template <typename Type>
 void swap(SingleLinkedList<Type>& lhs, SingleLinkedList<Type>& rhs) noexcept {
-    // Реализуйте обмен самостоятельно
     lhs.swap(rhs);
 }
 
 template <typename Type>
 bool operator==(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-    // Заглушка. Реализуйте сравнение самостоятельно
     return std::equal(lhs.begin(),lhs.end(),rhs.begin(),rhs.end());
 }
 
 template <typename Type>
 bool operator!=(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-    // Заглушка. Реализуйте сравнение самостоятельно
     return !(lhs==rhs);
 }
 
 template <typename Type>
 bool operator<(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-    // Заглушка. Реализуйте сравнение самостоятельно
     return std::lexicographical_compare(lhs.begin(),lhs.end(),rhs.begin(),rhs.end());
 }
 
 template <typename Type>
 bool operator<=(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-    // Заглушка. Реализуйте сравнение самостоятельно
     return !(rhs<lhs);
 }
 
 template <typename Type>
 bool operator>(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-    // Заглушка. Реализуйте сравнение самостоятельно
     return std::lexicographical_compare(rhs.begin(),rhs.end(),lhs.begin(),lhs.end());
 }
 
 template <typename Type>
 bool operator>=(const SingleLinkedList<Type>& lhs, const SingleLinkedList<Type>& rhs) {
-    // Заглушка. Реализуйте сравнение самостоятельно
     return !(lhs<rhs);
 }
 
