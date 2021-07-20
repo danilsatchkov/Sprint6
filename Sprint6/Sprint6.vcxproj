@@ -77,6 +77,10 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <PreprocessorDefinitions>%(AdditionalOptions);%(PreprocessorDefinitions);_DEBUG</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>-fsanitize=address /Zi %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,8 +132,13 @@
     <ClCompile Include="cats.cpp" />
     <ClCompile Include="LinkList.cpp" />
     <ClCompile Include="Octopus.cpp" />
+    <ClCompile Include="PrintRangeComma.cpp">
+      <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdcpp14</LanguageStandard>
+      <RuntimeTypeInfo Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</RuntimeTypeInfo>
+    </ClCompile>
     <ClCompile Include="PtrVector.cpp" />
     <ClCompile Include="ReverseArray.cpp" />
+    <ClCompile Include="Sanitizer.cpp" />
     <ClCompile Include="ScopedPtr.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
